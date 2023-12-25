@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="static/main.css">
+    <script src="static/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        window.onload = function() {
+            checkVisibility();
+        };
+    </script>
+    <title>New Entry</title>
+</head>
+<body>
+<div class="card">
+    <button class="close" onclick="window.location.href = '/'">X</button>
+    <button class="new_entry" onclick="window.location.href = '/'">New Entry</button>
+    <div class="card-header">
+        <h2>Visitor Check-In</h2>
+    </div>
+    <div class="card-body">
+
+        <form action="{{url_for('checkin_data')}}" method="POST" id="checkinVisitForm">
+            <table>
+                <tr>
+                    <td>Search Room</td>
+                    <td>
+                        <select id="side" name="side" onchange="sendSide()">
+                            <option value="default" selected disabled hidden>Select Side</option>
+                            <option id="north" value="north">North</option>
+                            <option id="south" value="south">South</option>
+                        </select>
+                        <select id="roomNumber" name="roomNumber" onchange="sendCombinedSelection()" required disabled>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Resident's Full name</td>
+                    <td>
+                        <select id="resList" name="resList" onchange="fillResidentNames()" disabled required>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="resFirstName" name="resFirstName" placeholder="First Name" readonly required></td>
+                    <td><input type="text" id="resLastName" name="resLastName" readonly required placeholder="Last Name"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">Contact Info <input type="text" id="resContact" name="resContact" required></td>
+                </tr>
+
+                <!-- Visitor Section-->
+                <tr>
+                    <td>Visitor's Full name</td>
+                    <td>Visitor's Full name</td>
+                    <td>
+                        <select id="visList" name="visList" onchange="fillVisitorNames()" disabled required>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="visFirstName" name="visFirstName" required readonly placeholder="First Name"></td>
+                    <td><input type="text" id="visLastName" name="visLastName" required readonly placeholder="Last Name"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">Phone number <input type="text" id="visContact" name="visContact"></td>
+                </tr>
+                <tr>
+                    <td><button type="reset" name="cancel" id="cancel" value="cancel" onclick="resetForm()"> Cancel </button></td>
+                    <td><button name="submit" id="submit" onclick="showAlert()">Submit </button></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+{% for message in get_flashed_messages() %}
+<dialog open id="data-modal" class="alert-dialog">
+    <div id="modal-content">{{ message }}</div>
+    <button id="data-close-modal" onclick="closeDialog(this)" >Close</button>
+</dialog>
+{% endfor %}
+</body>
+</html>

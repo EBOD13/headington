@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="static/main.css">
+    <script src="static/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        window.onload = function() {
+            checkVisibility();
+        };
+    </script>
+    <title>New Entry</title>
+</head>
+<body>
+<div class="card">
+    <button class="close" onclick="window.location.href = '/'">X</button>
+    <button class="new_entry" onclick="window.location.href = '/'">New Entry</button>
+    <div class="card-header">
+        <h2>Register New Visitor</h2>
+    </div>
+    <div class="card-body">
+
+        <form action="{{url_for('vis_registration_data')}}" method="POST" id="visRegForm">
+            <table>
+                <tr>
+                    <td><i>Resident Room</i></td>
+                    <td>
+                        <select id="side" name="side" onchange="sendSide()">
+                            <option value="default" selected disabled hidden>Select Side</option>
+                            <option id="north" value="north">North</option>
+                            <option id="south" value="south">South</option>
+                        </select>
+                        <input id="roomNumber" name="roomNumber" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))" maxlength="3" onkeyup="sendCombinedSelection()" required>
+                        </input>
+                    </td>
+                </tr>
+                <tr>
+                    <td><i><b>Resident Profile</b></i></td>
+                    <td>
+                        <select id="resList" name="resList" onchange="fillResidentNames()" disabled required>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="resFirstName" name="resFirstName" placeholder="First Name" required></td>
+                    <td><input type="text" id="resLastName" name="resLastName" required placeholder="Last Name"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">Contact Info <input type="text" id="resContact" name="resContact" required ></td>
+                </tr>
+
+                <!-- Visitor Section-->
+                <tr>
+                    <td><i><b>Visitor Profile</b></i></td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="visFirstName" name="visFirstName" required placeholder="First Name"></td>
+                    <td><input type="text" id="visLastName" name="visLastName" required placeholder="Last Name"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">Phone number <input type="number" id="visContact" name="visContact" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))"></td>
+                </tr>
+                <tr>
+                    <td><button type="reset" name="cancel" id="cancel" value="cancel" onclick="resetForm()"> Cancel </button></td>
+                    <td><button name="submit" id="submit">Submit </button></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+</body>
+</html>

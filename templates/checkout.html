@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="static/main.css">
+    <script src="static/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>New Entry</title>
+</head>
+<body>
+<div class="card">
+    <button class="close" onclick="window.location.href = '/'">X</button>
+    <button class="new_entry" onclick="window.location.href = '/'">New Entry</button>
+    <div class="card-header">
+        <h2>Visitor Check-Out</h2>
+    </div>
+    <div class="card-body">
+        <form action="{{url_for('checkout_data')}}" method="POST" id="checkoutVisitForm">
+            <table>
+                <tr>
+                    <td>Search Room</td>
+                    <td>
+                        <select id="side" name="side" onchange="sendSideOut()" required>
+                            <option disabled value="default" selected hidden>Select Side</option>
+                            <option id="north" value="north">North</option>
+                            <option id="south" value="south">South</option>
+                        </select>
+                        <select id="roomNumber" name="roomNumber" onchange="updateVisitor()" disabled required>
+                        </select>
+                    </td>
+                </tr>
+
+                    <td>Visitor's Full name</td>
+                    <td>
+                        <select id="visList" name="visList" onchange="fillVisitorNames()" disabled required>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="visFirstName" name="visFirstName" required readonly></td>
+                    <td><input type="text" id="visLastName" name="visLastName" required readonly></td>
+                </tr>
+                <tr>
+                    <td><button type="reset" name="cancel" id="cancel" value="cancel" onclick="resetForm()"> Cancel </button></td>
+                    <td><button name="submit" id="submit" onsubmit="updateVisitor()">Check-Out </button></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+</body>
+</html>

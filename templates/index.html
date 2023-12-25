@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="static/main.css">
+    <script src="static/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <title>New Entry</title>
+</head>
+<body>
+<div class="card">
+    <div class="card-header">
+        <h2>Visitation</h2>
+    </div>
+    <div class="card-body">
+        <button onclick="window.location.href = '{{ url_for('checkin_data') }}'">Check-In </button>
+        <button onclick="window.location.href = '{{ url_for('checkout_data') }}'">Check-Out </button>
+        <div class="card-header">
+            <h2>Registration</h2>
+            <button onclick="window.location.href = '{{ url_for('resident_registration') }}'">New Resident</button>
+            <button onclick="window.location.href = '{{ url_for('visitor_registration') }}'">New Visitor</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>
