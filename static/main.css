@@ -1,0 +1,254 @@
+/*
+body {
+  background: #228B22;
+  color: #333333;
+  margin-top: 5rem;
+}
+
+
+.button-pic{
+  position: relative;
+  width: 100%;
+  filter: drop-shadow(0 0 0.75rem crimson);
+}
+
+.button-pic img {
+  width: 50%;
+  margin: 0 auto;
+  display: block;
+  max-width: 50%;
+  border-radius: 10%;
+  height: 100%;
+}
+.button-pic .btn{
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  padding: 1.5% 5%;
+  background-color: #841617;
+  border-radius: 15px;
+  cursor: pointer;
+  border: none;
+  transform: translate(-50%, -50%);
+}
+.button-pic .btn:hover {
+  transition-duration: 500ms;
+  color: black;
+  background-color: #f0f0f0;
+  border: 2px;
+}
+select {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 200px;
+}
+select option{
+    font-size: 14px;
+    border-radius: 5px;
+}
+input {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 200px; }
+*/
+/* Basic card styling */
+html, body {
+    height: 100%;
+}
+html {
+    display: table;
+    margin: auto;
+}
+body {
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 18px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.card {
+    position: relative;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 2px 4px rgba(0, 0, 0, 0.1);
+    width: 35em; /* Set your desired width */
+    padding: 20px;
+    margin: 20px;
+}
+table {
+    width: 100%;
+}
+
+td {
+  text-align: left;
+  width: 50%; /* Adjust padding as needed */
+  padding-bottom: 1em;
+}
+
+input, select{
+    width: 13em;
+    border-radius: 4px;
+    font-size: 1.25em;
+    height: 1.4em;
+    font-family: 'Times New Roman', Times, serif;
+}
+input:focus, select:focus, select:not(:focus){
+    box-shadow: none;
+    outline: none;
+}
+
+.card-body button {
+    margin-left: 1em;
+    border-radius: 1.2em;
+    align: center;
+    background-color: #841617;
+    color: white;
+    border: none;
+    padding: 10px 20px; /* Adjust padding as needed */
+}
+/* Add shadow on hover for buttons in the card body */
+.card-body button:hover {
+    cursor: pointer;
+    background-color: #6e0d0e;
+    box-shadow: 0px 0px 10px 0px #6e0d0e; /* Adjust shadow size as needed */
+}
+.close {
+    background-color: #841617;
+    border: none;
+    color: white;
+    width: 2em; /* Adjust as needed */
+    height: 2em; /* Set the same value as width */
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1;
+    border-radius: 50%; /* Makes it a perfect circle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.new_entry {
+      background-color: #841617;
+      border: none;
+      color: white;
+      width: 7em; /* Adjust as needed */
+      height: 2em; /* Set the same value as width */
+      cursor: pointer;
+      position: absolute;
+      margin-right: 3em;
+      top: 10px;
+      right: 10px;
+      z-index: 1;
+      border-radius: 7px; /* Makes it a perfect circle */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+}
+
+
+  /* Styling for card title */
+h2 {
+    font-size: 24px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+  /* Styling for card body/content */
+.card-body {
+    color: #333;
+}
+#visContact, #resContact{
+    margin-left: 2em;
+    width: 19.5em;
+}
+input[type="button"], input[type="submit"]{
+    height: 1.8em;
+    background-color: rgb(155, 25, 27);
+    color: azure;
+    border-radius: 0.4em;
+    border: none;
+}
+#roomNum{
+    width: 6em;
+}
+#side{
+    margin-right: 0.6em;
+    width: 6em;
+}
+#roomNumber{
+    margin-right: 0.6em;
+    width: 6em;
+}
+button{
+    height: 2.7em;
+    width: 22em;
+}
+/* Default styles */
+.alert-dialog {
+    background-color: #4e0002;
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+    .alert-dialog {
+        width: 18em;
+        height: 3em;
+    }
+}
+
+/* Media query for larger screens */
+@media screen and (min-width: 1200px) {
+    .alert-dialog {
+        width: 18em;
+        height: 3em;
+        top: 50%;
+        left: 20%;
+
+    }
+}
+
+#modal-content {
+    /* Styles for the content inside the dialog */
+    color: #f0f0f0;
+    text-align: left;
+    flex: 1; /* Take remaining space */
+}
+
+#data-close-modal {
+    /* Styles for the close button */
+    background-color: #168284; /* Adjust to the color you prefer */
+    border: none;
+    padding: 5px 10px;
+    width: 5.5em;
+    cursor: pointer;
+    border-radius: 3px;
+    font-weight: bold;
+    color: white; /* Adjust text color */
+    margin-left: 10px; /* Margin to create space between content and button */
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
