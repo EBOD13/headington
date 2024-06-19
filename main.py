@@ -40,20 +40,6 @@ def sideProcess():
 
     return jsonify(result=rooms)
 
-# @app.route('/side_process_out', methods=['POST'])
-# def sideProcessOut():
-#     data = request.get_json()
-#     side_result = data['side'].lower()
-#
-#     if side_result == 'south':
-#         rooms = db.getAllRooms('s')
-#     elif side_result == 'north':
-#         rooms = db.getAllRooms('n')
-#     else:
-#         rooms = []
-#
-#     return jsonify(result=rooms)
-
 @app.route('/combinedProcess', methods=['POST'])
 def combinedProcess():
     data = request.get_json()
@@ -151,7 +137,7 @@ def vis_registration_data():
             db.addNewVisitor(res_firstname, res_lastname, room, vis_fullname, vis_contact)
 
 
-        return render_template("/about.html")  # For example, redirect to the homepage
+        return render_template("/about.html")  # Redirect to the homepage
     return render_template("/visitor_registration.html")
 
 
